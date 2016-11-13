@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars RPG</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <img id="logo" src="assets/images/logo.png" alt="logo" />
+        <div class="row">
+            <div id="characterGallery" class="col-md-5">
+                <h1>Choose Your Character</h1>
+                <div id="yoda" class="character">
+                    <img src="assets/images/yoda1.jpg" alt="yoda" />
+                    <p>HP:</p>
+                </div>
+                <div id="han" class="character">
+                    <img src="assets/images/han-solo.jpg" alt="han solo" />
+                    <p>HP:</p>
+                </div>
+                <div id="vader" class="character">
+                    <img src="assets/images/vader.jpg" alt="vader" />
+                    <p>HP:</p>
+                </div>
+                <div id="trooper" class="character">
+                    <img src="assets/images/trooper.jpg" alt="trooper" />
+                    <p>HP:</p>
+                </div>
+            </div>
+            <div id="battlefield" class="col-md-6 col-md-offset-1">
+                <div id="player">
+                </div>
+                <button class="btn btn-danger">
+                    Attack!
+                </button>
+                <div id="opponent">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
