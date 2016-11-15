@@ -14,7 +14,7 @@
         <img id="logo" src="assets/images/logo.png" alt="logo" />
         <div class="row">
             <div id="characterGallery" class="col-md-5">
-                <h1>Choose Your Character</h1>
+                <h1 id="playerSelection">Choose Your Character</h1>
                 <div id="yoda" class="character">
                     <img src="assets/images/yoda1.jpg" alt="yoda" />
                     <p>HP:</p>
@@ -33,12 +33,16 @@
                 </div>
             </div>
             <div id="battlefield" class="col-md-6 col-md-offset-1">
+                <h1 id="announce">Battlefield</h1>
+                <p id="instructions"></p>
                 <div id="player">
+                <p id="attackDamage"></p>
                 </div>
                 <button class="btn btn-danger">
                     Attack!
                 </button>
                 <div id="opponent">
+                <p id="counterAttackDamage"></p>
                 </div>
             </div>
         </div>
