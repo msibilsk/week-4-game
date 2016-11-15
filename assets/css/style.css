@@ -35,14 +35,21 @@ p {
 	height: 200px;
 	width: 200px;
 }
-button {
+.btn-danger {
 	visibility: hidden;
 	float: left;
 	margin: 60px 0px;
 }
-/*#announce {
+.btn-primary {
+	visibility: hidden;
+	float: left;
+	/*want to position this better*/
+}
 
+/*#announce {
+	want to put this in a better place
 }*/
+
 #instructions {
 	color: yellow;
 }
@@ -50,6 +57,7 @@ button {
 	margin-top: 250px;
 }
 /*.damage {
+	WANT TO MAKE THIS WORK SO THAT THE CHARACTER FLASHES RED WHEN BEING DAMAGED
 	position: relative;
 	display: inline;
 	top: 0px;

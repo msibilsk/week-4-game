@@ -24,6 +24,7 @@ $(document).ready(function() {
     var opponent = undefined;
     var playerName;
     var opponentName;
+    var win = 0;
 
     var showHP = function () {
         for (var key in characterMap) {
@@ -41,23 +42,15 @@ $(document).ready(function() {
             $("#playerSelection").html("Select Your Opponent");
             $(".character").css("border", "5px solid red");
             $("#player .character").css("border", "none");
-        } else if (opponent === undefined) {
+        } else if (opponent === undefined && win === 0) {
             opponentName = $(this).attr("id");
             opponent = characterMap[opponentName];
-            $("button").css("visibility", "visible");
+            $(".btn-danger").css("visibility", "visible");
             $(this).prependTo("#opponent");
             $("#opponent .character").css("border", "none");
             $("#instructions").empty();
         }
     });
-
-    // var reset = function (){
-    //     $("#opponent").remove("#" + opponentName);
-    //     $("#player").remove("#" + playerName);
-    //     for (var key in characterMap) {
-    //         $("#characterGallery").append($("<div id='" + key + "'>"));
-    //     }
-    // };
 
     $("button").on("click", function() {
         opponent.healthPoints -= player.attackPower;
@@ -68,12 +61,20 @@ $(document).ready(function() {
             player.healthPoints -= opponent.counterAttack;
             $("#counterAttackDamage").html(opponentName.toUpperCase() + " counter attacked for " + opponent.counterAttack + " damage.");
             showHP();
-            if (player.healthPoints < 0) {
+            if (player.healthPoints < 1) {
+                //want to show hp as 0
                 $("#announce").html("NoooOOOOooooOOO! You Lose")
+                opponent = undefined;
+                win = -1;
+                $(".btn-primary").css("visibility", "visible");
             }
         } else {
             if ( $('#characterGallery').children().length == 1 ) {
                 $("#announce").html("The Force Is Strong With You...You Win!");
+                opponent = undefined;
+                //want to show hp as 0
+                win = 1;
+                $(".btn-primary").css("visibility", "visible");
             } else {
                 $("#instructions").html("Search your feelings and select another opponet!")
                 $("#" + opponentName).remove();
@@ -82,5 +83,7 @@ $(document).ready(function() {
             }
         }
     });
+
+    // TODO on click for Reset Button that resets js variables and reloads the html.
 
 });
