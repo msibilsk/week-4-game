@@ -42,7 +42,7 @@ $(document).ready(function() {
             $("#playerSelection").html("Select Your Opponent");
             $(".character").css("border", "5px solid red");
             $("#player .character").css("border", "none");
-        } else if (opponent === undefined && win === 0) {
+        } else if (opponent === undefined && win === 0 && $(this).attr("id") !== playerName) {
             opponentName = $(this).attr("id");
             opponent = characterMap[opponentName];
             $(".btn-danger").css("visibility", "visible");
@@ -52,7 +52,7 @@ $(document).ready(function() {
         }
     });
 
-    $("button").on("click", function() {
+    $(".btn-danger").on("click", function() {
         opponent.healthPoints -= player.attackPower;
         $("#attackDamage").html("You attacked for " + player.attackPower + " damage.");
         player.attackPower = Math.floor(player.attackPower * 1.5);
@@ -67,6 +67,8 @@ $(document).ready(function() {
                 opponent = undefined;
                 win = -1;
                 $(".btn-primary").css("visibility", "visible");
+                var no = new Audio("assets/sound/nooo.mp3");
+                no.play();
             }
         } else {
             if ( $('#characterGallery').children().length == 1 ) {
@@ -75,6 +77,8 @@ $(document).ready(function() {
                 //want to show hp as 0
                 win = 1;
                 $(".btn-primary").css("visibility", "visible");
+                var song = new Audio("assets/sound/starwars.mp3");
+                song.play();
             } else {
                 $("#instructions").html("Search your feelings and select another opponet!")
                 $("#" + opponentName).remove();
@@ -84,6 +88,8 @@ $(document).ready(function() {
         }
     });
 
-    // TODO on click for Reset Button that resets js variables and reloads the html.
+    $(".btn-primary").on("click", function() {
+        location.reload();
+    });
 
 });
