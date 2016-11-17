@@ -8,10 +8,10 @@ $(document).ready(function() {
         }
     };
 
-    var yoda = new Character(90, 10, 20);
-    var han = new Character(85, 10, 15);
+    var yoda = new Character(110, 12, 20);
+    var han = new Character(100, 10, 15);
     var vader = new Character(200, 15, 20);
-    var trooper = new Character(75, 8, 10);
+    var trooper = new Character(90, 8, 10);
 
     var characterMap = {
         yoda: yoda,
@@ -25,10 +25,11 @@ $(document).ready(function() {
     var playerName;
     var opponentName;
     var win = 0;
+    var currentAttackPower;
 
     var showHP = function () {
         for (var key in characterMap) {
-            $("#" + key + " p").html(" " + characterMap[key].healthPoints);
+            $("#" + key + " span").html(" " + characterMap[key].healthPoints);
         }
     }
 
@@ -39,6 +40,7 @@ $(document).ready(function() {
         if (player === undefined) {
             playerName = $(this).attr("id");
             player = characterMap[playerName];
+            currentAttackPower = player.attackPower;
             $(this).prependTo("#player");
             $("#playerSelection").html("Select Your Opponent");
             $(".character").css("border", "5px solid red");
@@ -55,9 +57,9 @@ $(document).ready(function() {
 
     //attack and counter attack functionality with checks for win/loss
     $(".btn-danger").on("click", function() {
-        opponent.healthPoints -= player.attackPower;
-        $("#attackDamage").html("You attacked for " + player.attackPower + " damage.");
-        player.attackPower = Math.floor(player.attackPower * 1.5);
+        opponent.healthPoints -= currentAttackPower;
+        $("#attackDamage").html("You attacked for " + currentAttackPower + " damage.");
+        currentAttackPower += player.attackPower;
         showHP();
         if (opponent.healthPoints > 0) {
             player.healthPoints -= opponent.counterAttack;
@@ -80,7 +82,7 @@ $(document).ready(function() {
                 var song = new Audio("assets/sound/starwars.mp3");
                 song.play();
             } else {
-                $("#instructions").html("Search your feelings and select another opponet!")
+                $("#instructions").html("Search your feelings and select another opponent!")
                 $("#" + opponentName).remove();
                 $("#counterAttackDamage").html("");
                 opponent = undefined;

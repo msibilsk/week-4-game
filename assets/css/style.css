@@ -49,6 +49,7 @@ p {
 
 #instructions {
 	color: yellow;
+	font-weight: bold;
 }
 #attackDamage, #counterAttackDamage {
 	margin-top: 250px;
