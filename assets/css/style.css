@@ -47,24 +47,9 @@ p {
 	margin: 60px 0px 60px 10px;
 }
 
-#announce {
-	/*want to put this in a better place*/
-/*	font-weight: bold;*/
-}
-
 #instructions {
 	color: yellow;
 }
 #attackDamage, #counterAttackDamage {
 	margin-top: 250px;
 }
-/*.damage {
-	WANT TO MAKE THIS WORK SO THAT THE CHARACTER FLASHES RED WHEN BEING DAMAGED
-	position: relative;
-	display: inline;
-	top: 0px;
-	left: 0px;
-	height: 200px;
-	width: 200px;
-	background-color: red;
-}*/

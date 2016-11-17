@@ -34,6 +34,7 @@ $(document).ready(function() {
 
     showHP();
 
+    //handles selection of characters
     $(".character").on("click", function() {
         if (player === undefined) {
             playerName = $(this).attr("id");
@@ -52,6 +53,7 @@ $(document).ready(function() {
         }
     });
 
+    //attack and counter attack functionality with checks for win/loss
     $(".btn-danger").on("click", function() {
         opponent.healthPoints -= player.attackPower;
         $("#attackDamage").html("You attacked for " + player.attackPower + " damage.");
@@ -62,7 +64,6 @@ $(document).ready(function() {
             $("#counterAttackDamage").html(opponentName.toUpperCase() + " counter attacked for " + opponent.counterAttack + " damage.");
             showHP();
             if (player.healthPoints < 1) {
-                //want to show hp as 0
                 $("#announce").html("NoooOOOOooooOOO! You Lose")
                 opponent = undefined;
                 win = -1;
@@ -74,7 +75,6 @@ $(document).ready(function() {
             if ( $('#characterGallery').children().length == 1 ) {
                 $("#announce").html("The Force Is Strong With You...You Win!");
                 opponent = undefined;
-                //want to show hp as 0
                 win = 1;
                 $(".btn-primary").css("visibility", "visible");
                 var song = new Audio("assets/sound/starwars.mp3");
@@ -88,6 +88,7 @@ $(document).ready(function() {
         }
     });
 
+    //reloads page to reset html and javascript
     $(".btn-primary").on("click", function() {
         location.reload();
     });
